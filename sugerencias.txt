@@ -3,8 +3,7 @@ perspectiva
 
 aumentador de tabla con trigger de una perspectiva.
 
-
-
 gestor>> perspectiva general
 analista encargado por el gestor>> perspectiva general
+
 
