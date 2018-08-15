@@ -1,4 +1,6 @@
-<?php require_once './conexion.php';
+<?php 
+
+require_once '../../base_de_datos/conexion.php';
 
 $sql = "SELECT * FROM proyectos";
 $result = $conn->query($sql);
@@ -17,7 +19,7 @@ echo '
 <div style="display: inline-block;" >
 <fieldset>
         <legend>Ingenieria de Sistemas de Gestión</legend>
-        <form action="validacion_usuario.php" method="POST">
+        <form action="validacion_creacion_proyecto.php" method="POST">
             <label for="cant_proyecto">Clave del Proyecto</label><input type="text"  name="cant_proyecto" value="PRY'.$cantidad_proyectos.'"><br/>
             <label for="nom_proyecto">Nombre del Proyecto</label><input type="text" name="nom_proyecto" ><br/>
             <label for="nom_equipo">Nombre del Equipo</label><input type="text" name="nom_equipo" ><br/>
