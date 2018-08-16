@@ -14,7 +14,7 @@ if ($result->num_rows > 0) {
     if($txt_usuario == $row['cor_usuario'] && $psw_contrasenna == $row['pas_usuario']){
         session_start();
         $_SESSION['usuario'] = $row['nom_usuario'];
-        $nom_usuario = $row['nom_usuario'];
+        $_SESSION['cod_usuario'] = $row['cod_usuario'];
         echo '<script>alert ("Bienvenido '.$row['nom_usuario'].'");
             window.location.replace("../proyecto/vista_proyecto.php");</script>';       
     }

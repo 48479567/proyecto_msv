@@ -1,15 +1,16 @@
 <?php
 require_once '../base_de_datos/conexion.php';
 session_start();
-
+$cod_usuario = $_SESSION['cod_usuario'];
 echo '';
 
 $var_consulta= "SELECT * FROM usuarios";
 $var_resultado = $conn->query($var_consulta);
 
+$sql_equ1 = "SELECT usu_equipo.cod_equipo, equipos.npm_equipo FROM usu_equipo INNER JOIN equipos ON usu_equipo.cod_equipo = equipos.cod_equipo WHERE usu_equipo.cod_usuario = '$cod_usuario'";
+$res_equ1 = $conn->query($sql_equ1);
 
-
-$sql_pry1 = "SELECT nom_proyecto FROM proyectos";
+$sql_pry1 = "SELECT proyectos.nom_proyecto, equipos.npm_equipo, usu_equipo.cod_equipo FROM ((proyectos INNER JOIN equipos ON proyectos.cod_equipo = equipos.cod_equipo) INNER JOIN usu_equipo ON usu_equipo.cod_equipo = equipos.cod_equipo) WHERE usu_equipo.cod_usuario = '$cod_usuario' ";
 $res_pry1 = $conn->query($sql_pry1);
 
  
