@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-08-2018 a las 17:29:39
+-- Tiempo de generación: 15-08-2018 a las 19:14:01
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -265,18 +265,18 @@ CREATE TABLE `proyectos` (
   `cod_proyecto` varchar(30) NOT NULL,
   `nom_proyecto` varchar(80) NOT NULL,
   `cod_equipo` varchar(30) NOT NULL,
-  `cod_per_general` varchar(30) NOT NULL
+  `cod_perspecitva` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `proyectos`
 --
 
-INSERT INTO `proyectos` (`cod_proyecto`, `nom_proyecto`, `cod_equipo`, `cod_per_general`) VALUES
-('pry1', 'proyecto 1', 'equ1', 'cpg1'),
-('pry2', 'proyecto 2', 'equ2', 'cpg1'),
-('pry3', 'proyecto 3', 'equ1', 'cpg2'),
-('pry4', 'proyecto 4', 'equ2', 'cpg2');
+INSERT INTO `proyectos` (`cod_proyecto`, `nom_proyecto`, `cod_equipo`, `cod_perspecitva`) VALUES
+('pry1', 'proyecto 1', 'equ1', 'per1'),
+('pry2', 'proyecto 2', 'equ2', 'per1'),
+('pry3', 'proyecto 3', 'equ1', 'per2'),
+('pry4', 'proyecto 4', 'equ2', 'per2');
 
 -- --------------------------------------------------------
 
@@ -499,8 +499,8 @@ ALTER TABLE `proveedores`
 --
 ALTER TABLE `proyectos`
   ADD PRIMARY KEY (`cod_proyecto`),
-  ADD KEY `cod_equipo` (`cod_equipo`,`cod_per_general`),
-  ADD KEY `cod_perspecitva` (`cod_per_general`);
+  ADD KEY `cod_equipo` (`cod_equipo`,`cod_perspecitva`),
+  ADD KEY `cod_perspecitva` (`cod_perspecitva`);
 
 --
 -- Indices de la tabla `reguladores`
@@ -598,10 +598,23 @@ ALTER TABLE `productos_servicios`
   ADD CONSTRAINT `productos_servicios_ibfk_1` FOREIGN KEY (`cod_ele_perspectiva`) REFERENCES `elementos_perspectiva` (`cod_ele_perspectiva`);
 
 --
+-- Filtros para la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  ADD CONSTRAINT `proveedores_ibfk_1` FOREIGN KEY (`cod_ele_perspectiva`) REFERENCES `elementos_perspectiva` (`cod_ele_perspectiva`);
+
+--
 -- Filtros para la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  ADD CONSTRAINT `proyectos_ibfk_1` FOREIGN KEY (`cod_per_general`) REFERENCES `perspectivas_generales` (`cod_per_general`);
+  ADD CONSTRAINT `proyectos_ibfk_1` FOREIGN KEY (`cod_equipo`) REFERENCES `equipos` (`cod_equipo`),
+  ADD CONSTRAINT `proyectos_ibfk_2` FOREIGN KEY (`cod_perspecitva`) REFERENCES `perspectivas` (`cod_perspectiva`);
+
+--
+-- Filtros para la tabla `reguladores`
+--
+ALTER TABLE `reguladores`
+  ADD CONSTRAINT `reguladores_ibfk_1` FOREIGN KEY (`cod_ele_perspectiva`) REFERENCES `elementos_perspectiva` (`cod_ele_perspectiva`);
 
 --
 -- Filtros para la tabla `rol_usuario`

@@ -40,7 +40,7 @@ echo '
         <fieldset>
         <legend>Crear Proyecto</legend>
         <form action="validacion_creacion_proyecto.php" method="POST">
-            <label for="cant_proyecto">Clave del Proyecto</label><input type="text"  id="cant_proyecto" value="PRY'.$cantidad_proyectos.'"><br/>
+            <label for="cant_proyecto">Clave del Proyecto</label><input type="text"  id="cant_proyecto" value="pry'.$cantidad_proyectos.'"><br/>
             <label for="nom_proyecto">Nombre del Proyecto</label><input type="text" id="nom_proyecto" ><br/>
             <label for="nom_equipo">Nombre del Equipo</label><input type="text" id="nom_equipo" ><br/>
             <label for="">Nombre de la Perspectiva</label></br>';
