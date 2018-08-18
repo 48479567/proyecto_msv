@@ -34,7 +34,7 @@ if($res_pry1->num_rows > 0){
   <ul>';
   while($row = $res_pry1->fetch_assoc()) {
   echo '
-    <li><a href="../diagramador/Tutorial4.html">'.$row['nom_proyecto'].'</a></li></br>';
+    <li><a href="../diagramador/javascript/examples/toolbar.html">'.$row['nom_proyecto'].'</a></li></br>';
   }
   echo '
   </ul>';
